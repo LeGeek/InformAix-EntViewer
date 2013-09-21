@@ -1,0 +1,28 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/action_thisWeek"
+        android:showAsAction="ifRoom|withText"
+        android:icon="@drawable/calendar_thisweek"
+        android:title="@string/action_thisWeek"/>
+    
+    <!-- 
+    <item 
+        android:id="@+id/action_nextWeek"
+        android:showAsAction="never"
+        android:title="@string/action_nextWeek" />
+    <item 
+        android:id="@+id/action_prevWeek"
+        android:showAsAction="never"
+        android:title="@string/action_prevWeek" />
+    -->
+    
+    <item 
+        android:id="@+id/preferences"
+        android:title="@string/pref"
+        android:showAsAction="ifRoom|withText"
+        android:icon="@drawable/reglage" />
+    <item android:id="@+id/action_help" android:title="@string/action_help"></item>
+    
+
+</menu>

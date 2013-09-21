@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <PreferenceCategory android:title="Général">
+	    <ListPreference
+	        android:key="id_value"
+	        android:title="Choix Ressources"
+	        android:summary="Choisir la ressource à afficher"
+	        android:negativeButtonText="Annuler"
+	        android:entries="@array/id_name"
+	        android:enabled="true"
+	        android:entryValues="@array/id_value"
+	        android:dialogTitle="Sélection ID"/>
+	        
+    </PreferenceCategory>
+    
+    <PreferenceCategory android:title="Affichage">
+	    <CheckBoxPreference android:key="auto_width_col" android:title="Largeur auto." android:summary="Largeur des colonnes automatique" android:defaultValue="false"/><EditTextPreference
+	        android:key="width_col"
+	        android:negativeButtonText="Annuler"
+	        android:positiveButtonText="Valider"
+	        android:dialogTitle="Taille colonne"
+	        android:dialogMessage="Précisez la taille de colonne (en px)"
+	        android:defaultValue="100"
+	        android:title="Taille colonne"
+	        android:summary="Précisez la largeur de colonne (en px)"/>
+	    
+        
+    </PreferenceCategory>
+</PreferenceScreen>

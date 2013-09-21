@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Inform\'Aix Ent Viewer</string>
+    <string name="action_thisWeek">Cette semaine</string>
+    <string name="action_nextWeek">Semaine suiv.</string>
+    <string name="action_prevWeek">Semaine prec.</string>
+    <string name="pref">Préférences</string>
+    <string name="action_help">Aide</string>
+
+</resources>

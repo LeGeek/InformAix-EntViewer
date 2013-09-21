@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>	
+    <string-array name="id_name">
+        <item>Groupe 1.A - An 1</item>
+        <item>Groupe 1.B - An 1</item>
+        <item>Groupe 2.A - An 1</item>
+        <item>Groupe 2.B - An 1</item>
+        <item>Groupe 3.A - An 1</item>
+        <item>Groupe 3.B - An 1</item>
+        <item>Groupe 4.A - An 1</item>
+        <item>Groupe 4.B - An 1</item>
+        <item>Groupe 5.A - An 1</item>
+        <item>Groupe 5.B - An 1</item>
+        
+        <item>Groupe 1.A - An 2</item>
+        <item>Groupe 1.B - An 2</item>
+        <item>Groupe 2.A - An 2</item>
+        <item>Groupe 2.B - An 2</item>
+        <item>Groupe 3.A - An 2</item>
+        <item>Groupe 3.B - An 2</item>
+        
+        <item>License Pro.</item>
+        
+		<item>BERNE Michel</item>
+		<item>BERTRAND Luc</item>
+		<item>BOITARD Didier</item>
+		<item>BROCHE Martine</item>
+		<item>CACCHIA Marie Claude</item>
+		<item>CASALI Alain</item>
+		<item>CICCHETTI Rosine</item>
+		<item>GAITAN Patricia</item>
+		<item>KIAN Yavar</item>
+		<item>LAKHAL Lotfi</item>
+		<item>LAPORTE Marc</item>
+		<item>MAKSSOUD Christine</item>
+		<item>MONNET Marlenne</item>
+		<item>NEDJAR Sébastien</item>
+		<item>PAIN BARRE Cyril</item>
+		<item>RISCH Vincent</item>
+		<item>SLEZAK Eileen</item>
+		<item>VAQUIERI Josee</item>
+		<item>WOOD David</item>
+		<item>YAHI Safa</item>
+    </string-array>
+    
+    <string-array name="id_value">
+        <item>8385</item>
+        <item>8386</item>
+        <item>8387</item>
+        <item>8388</item>
+        <item>8389</item>
+        <item>8390</item>
+        <item>8391</item>
+        <item>8392</item>
+        <item>8393</item>
+        <item>8394</item>
+        
+        <item>8400</item>
+        <item>8401</item>
+        <item>8402</item>
+        <item>8403</item>
+        <item>8404</item>
+        <item>8405</item>
+        
+        <item>6445</item>
+        
+		<item>333</item>
+		<item>8953</item>
+		<item>1321</item>
+		<item>1320</item>
+		<item>1126</item>
+		<item>1244</item>
+		<item>983</item>
+		<item>479</item>
+		<item>3224</item>
+		<item>152</item>
+		<item>1312</item>
+		<item>2008</item>
+		<item>1300</item>
+		<item>1467</item>
+		<item>411</item>
+		<item>386</item>
+		<item>1439</item>
+		<item>803</item>
+		<item>2070</item>
+		<item>2062</item>
+    </string-array> 
+</resources>
