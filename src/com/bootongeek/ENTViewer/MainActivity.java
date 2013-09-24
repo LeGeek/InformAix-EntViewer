@@ -36,6 +36,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.JavascriptInterface;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.EditText;
 
@@ -126,8 +127,12 @@ public class MainActivity extends Activity {
 		webView = (WebView) findViewById(R.id.webView);
 		webView.getSettings().setJavaScriptEnabled(true);
 		webView.addJavascriptInterface(new JavaScriptInterface(this), "AndroidScript");
+		webView.setInitialScale(100);
 		webView.getSettings().setSupportZoom(true);
 		webView.getSettings().setBuiltInZoomControls(true);
+		webView.getSettings().setLoadWithOverviewMode(true);
+		webView.getSettings().setUseWideViewPort(true);
+		webView.getSettings().setDefaultZoom(WebSettings.ZoomDensity.FAR);
 		
 		File dir = new File(LOCAL_FOLDER);
 		if(!dir.exists()){
@@ -174,7 +179,7 @@ public class MainActivity extends Activity {
 		switch(item.getItemId())
 		{
 			case R.id.action_thisWeek:
-				runDownloadThread(generateUrlCalendar(), LOCAL_FOLDER, LOCAL_FILE_NAME);
+				runDownloadThread(generateUrlCalendar(0), LOCAL_FOLDER, LOCAL_FILE_NAME);
 				return true;
 				
 			case R.id.preferences:
@@ -195,7 +200,7 @@ public class MainActivity extends Activity {
 		super.onActivityResult(requestCode, resultCode, data);
 		
 		if(requestCode == PREF_ACTIVITY){
-			runDownloadThread(generateUrlCalendar(), LOCAL_FOLDER, LOCAL_FILE_NAME);
+			runDownloadThread(generateUrlCalendar(0), LOCAL_FOLDER, LOCAL_FILE_NAME);
 		}
 		
 	}
@@ -309,15 +314,25 @@ public class MainActivity extends Activity {
 		});
 	}
 	
-	private String generateUrlCalendar(){
+	private String generateUrlCalendar(int offsetWeek){
 		//"http://planning.univ-amu.fr/ade/custom/modules/plannings/anonymous_cal.jsp?resources=8400&projectId=26&startDay=16&startMonth=09&startYear=2013&endDay=22&endMonth=09&endYear=2013&calType=ical"
 		Calendar nowDate = Calendar.getInstance();
 		
-		int weekOfYear = nowDate.get(Calendar.WEEK_OF_YEAR);
+		int weekOfYear = nowDate.get(Calendar.WEEK_OF_YEAR) + offsetWeek;
+		
+		if(weekOfYear > 52){
+			weekOfYear -= 52;
+		}
+		else if(weekOfYear < 0)
+		{
+			weekOfYear += 52;
+		}
+		
 		int year = nowDate.get(Calendar.YEAR);
+		
 		nowDate.clear();
 		nowDate.setFirstDayOfWeek(Calendar.MONDAY);
-		nowDate.set(Calendar.WEEK_OF_YEAR, weekOfYear);
+		nowDate.set(Calendar.WEEK_OF_YEAR, weekOfYear + offsetWeek);
 		nowDate.set(Calendar.YEAR, year);
 		
 		SimpleDateFormat dayFormat = new SimpleDateFormat("dd");
@@ -332,7 +347,7 @@ public class MainActivity extends Activity {
 		ret += "&startDay=" + dayFormat.format(nowDate.getTime());
 		ret += "&startMonth=" + monthFormat.format(nowDate.getTime());
 		ret += "&startYear=" + yearFormat.format(nowDate.getTime());
-		nowDate.add(Calendar.DATE, 5);
+		nowDate.add(Calendar.DATE, 6);
 		ret += "&endDay=" + dayFormat.format(nowDate.getTime());
 		ret += "&endMonth=" + monthFormat.format(nowDate.getTime());
 		ret += "&endYear=" + yearFormat.format(nowDate.getTime());

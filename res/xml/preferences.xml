@@ -10,6 +10,7 @@
 	        android:enabled="true"
 	        android:entryValues="@array/id_value"
 	        android:dialogTitle="Sélection ID"/>
+	    <EditTextPreference android:dialogTitle="Ressource perso." android:dialogMessage="Entrez une ressource personnalisée" android:key="id_value" android:summary="Entrez une ressource personnalisée" android:title="Ressource perso."/>
 	        
     </PreferenceCategory>
     

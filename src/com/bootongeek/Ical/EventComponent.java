@@ -49,9 +49,9 @@ public class EventComponent {
 	private IcalDate dateEnd;
 	
 	public EventComponent(String sum, String loc, String descr, String dateB, String dateE){
-		summary = sum.replace('\n', ' ');
-		location = loc.replace('\n', ' ');
-		description = descr.replace('\n', ' ');
+		summary = prepareHtmlString(sum.replace('\n', ' '));
+		location = prepareHtmlString(loc.replace('\n', ' '));
+		description = prepareHtmlString(descr.replace('\n', ' '));
 		dateBegin = new IcalDate(dateB);
 		dateEnd = new IcalDate(dateE);
 	}
@@ -78,5 +78,17 @@ public class EventComponent {
 				"Description : " + description + "\n" +
 				"Date Begin : " + dateBegin + "\n" + 
 				"Date End : " + dateEnd);
+	}
+	
+	private String prepareHtmlString(String str){
+		String[] f = { "é", "è", "à", "ç" };
+		String[] r = { "&eacute;", "&egrave;", "&agrave;", "&ccedil" };
+		
+		String ret = str;
+		for(int i = 0; i < f.length; ++i)
+			ret = ret.replace(f[i],r[i]);
+		
+		System.out.println(str + " : " + ret);
+		return ret;
 	}
 }
