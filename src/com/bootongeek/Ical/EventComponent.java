@@ -88,7 +88,6 @@ public class EventComponent {
 		for(int i = 0; i < f.length; ++i)
 			ret = ret.replace(f[i],r[i]);
 		
-		System.out.println(str + " : " + ret);
 		return ret;
 	}
 }
