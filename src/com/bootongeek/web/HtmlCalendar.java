@@ -68,10 +68,7 @@ public class HtmlCalendar {
 				currentTimeIndex = 0;
 			}
 			
-			while(tabTime[currentTimeIndex] != deb.hour){
-				addLine("<td style='border: 1px solid black;'></td>");
-				++currentTimeIndex;
-			}
+			//fillEmptyCells(currentTimeIndex);
 			
 			addLine("<td colspan='" + duration / 2 +"' style='text-align: center; border: 1px solid black;' " +
 					"onclick=\"AndroidScript.showAlert('Titre :<br>" +

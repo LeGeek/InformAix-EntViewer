@@ -80,7 +80,7 @@ public class EventComponent {
 				"Date End : " + dateEnd);
 	}
 	
-	private String prepareHtmlString(String str){
+	static public String prepareHtmlString(String str){
 		String[] f = { "é", "è", "à", "ç" };
 		String[] r = { "&eacute;", "&egrave;", "&agrave;", "&ccedil" };
 		

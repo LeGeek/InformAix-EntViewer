@@ -24,6 +24,12 @@
 	        android:defaultValue="100"
 	        android:title="Taille colonne"
 	        android:summary="Précisez la largeur de colonne (en px)"/>
+	    <EditTextPreference
+	        android:dialogTitle="Décalage semaine"
+	        android:summary="Entrez un décalage de semaine (+ ou -)"
+	        android:title="Décalage semaine"
+	        android:key="offset_week"
+	        android:defaultValue="0"/>
 	    
         
     </PreferenceCategory>

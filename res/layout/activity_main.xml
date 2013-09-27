@@ -10,7 +10,45 @@
 
     <WebView
         android:id="@+id/webView"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"/>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ImageButton
+        android:id="@+id/imageButtonPrevWeek"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/webView"
+        android:layout_alignLeft="@+id/webView"
+        android:src="@drawable/prev_week"
+        android:alpha="1.0"
+        android:background="@color/invisible" />
+
+    <ImageButton
+        android:id="@+id/imageButtonNextWeek"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/webView"
+        android:layout_alignRight="@+id/webView"
+        android:src="@drawable/next_week"
+        android:alpha="1.0"
+        android:background="@color/invisible" />
+
+    <ImageButton
+        android:id="@+id/imageButtonThisWeek"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/webView"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/calendar_thisweek"
+        android:alpha="1.0"
+        android:background="@color/invisible" />
+
+    <TextView
+        android:id="@+id/textViewOffsetWeek"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/webView"
+        android:layout_centerHorizontal="true"
+        android:text="xxx" />
 
 </RelativeLayout>
