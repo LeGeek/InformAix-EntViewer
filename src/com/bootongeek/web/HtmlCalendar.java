@@ -12,7 +12,7 @@ import com.bootongeek.Ical.EventComponent.IcalDate;
 
 public class HtmlCalendar {
 	private String html = "";
-	private int[] tabTime = {8, 10, 13, 15, 17};
+	private int[] tabTime = {2, 8, 10, 13, 15, 17};
 	
 	public HtmlCalendar(IcalFileParser ifp, Context c){
 		if(ifp.getVector().size() == 0) return;
@@ -29,8 +29,8 @@ public class HtmlCalendar {
 			addLine("body { width: " + (Integer.valueOf(prefs.getString("width_col", "100")) * 6) + ";}");
 		}
 		
-		addLine("td { border: 1px solid black;}" +
-				".tete { font-weight: bold; text-align: center; }" +
+		addLine("td { border: 1px solid black; padding: 5px;}" +
+				".tete { font-weight: bold; text-align: center; font-size: 1.2em;}" +
 				"</style>" +
 				"</head>" +
 				"<body>");
@@ -43,7 +43,7 @@ public class HtmlCalendar {
 				"<td class='tete'>13h - 15h</td>" +
 				"<td class='tete'>15h - 17h</td>" +
 				"<td class='tete'>17h - 19h</td>" +
-				"</tr><td>" + tmpDate + "</td>");
+				"</tr>");
 		
 		int currentTimeIndex = 0;
 		
@@ -53,20 +53,11 @@ public class HtmlCalendar {
 			
 			if(!deb.getDateToString().equals(tmpDate)){
 				fillEmptyCells(currentTimeIndex);
-				
-				int offset = 1;
-				while((deb.day - tmpVect.get(i-1).getDateBegin().day) > offset){
-					addLine("<tr><td>" + (tmpVect.get(i-1).getDateBegin().day + offset)
-							+ "/" + tmpVect.get(i-1).getDateBegin().month 
-							+ "/" + tmpVect.get(i-1).getDateBegin().year + "</td>");
-					fillEmptyCells(0);
-					++offset;
-				}
-				
 				tmpDate = deb.getDateToString();
-				addLine("</tr><tr><td>" + tmpDate + "</td>");
+				addLine("</tr><tr>");
 				currentTimeIndex = 0;
 			}
+
 			while(tabTime[currentTimeIndex] != deb.hour){
 				createEmptyCells(1);
 				++currentTimeIndex;
@@ -79,8 +70,8 @@ public class HtmlCalendar {
 					tmpVect.get(i).getDescription() +
 					"<br>Location :<br>" +
 					tmpVect.get(i).getLocation() + "');\">");
-			addLineBr(tmpVect.get(i).getSummary());
-			addLine(tmpVect.get(i).getLocation());
+			addLineBr("<strong>" + tmpVect.get(i).getSummary() + "</strong>");
+			addLine("<em>" + tmpVect.get(i).getLocation() + "</em>");
 			addLine("</td>");
 			
 			currentTimeIndex += duration/2;

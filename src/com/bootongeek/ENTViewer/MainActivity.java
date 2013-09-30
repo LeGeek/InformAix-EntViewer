@@ -296,11 +296,7 @@ public class MainActivity extends Activity {
 					b.putBoolean("open", true);
 					b.putString("message", "Parsage du fichier en cours...");
 					sendMessageToProgressDialog(b);
-					parser = new IcalFileParser(folder + "/" + filename);
-
-					b.putString("message", "Tri en cours...");
-					sendMessageToProgressDialog(b);
-					parser.sortWithBubbleSort();
+					parser = new IcalFileParser(folder + "/" + filename, Integer.valueOf(prefs.getString("offset_week", "0")));
 					
 					b.putString("message", "Affichage");
 					sendMessageToProgressDialog(b);
@@ -372,7 +368,6 @@ public class MainActivity extends Activity {
 	private String generateUrlCalendar(int offsetWeek){
 		//"http://planning.univ-amu.fr/ade/custom/modules/plannings/anonymous_cal.jsp?resources=8400&projectId=26&startDay=16&startMonth=09&startYear=2013&endDay=22&endMonth=09&endYear=2013&calType=ical"
 		Calendar nowDate = Calendar.getInstance();
-		
 		int weekOfYear = nowDate.get(Calendar.WEEK_OF_YEAR) + offsetWeek;
 		
 		if(weekOfYear > 52){
@@ -385,7 +380,7 @@ public class MainActivity extends Activity {
 		
 		int year = nowDate.get(Calendar.YEAR);
 		nowDate.clear();
-		nowDate.setFirstDayOfWeek(Calendar.MONDAY);
+		nowDate.setFirstDayOfWeek(Calendar.SUNDAY);
 		nowDate.set(Calendar.WEEK_OF_YEAR, weekOfYear);
 		nowDate.set(Calendar.YEAR, year);
 		
@@ -401,7 +396,7 @@ public class MainActivity extends Activity {
 		ret += "&startDay=" + dayFormat.format(nowDate.getTime());
 		ret += "&startMonth=" + monthFormat.format(nowDate.getTime());
 		ret += "&startYear=" + yearFormat.format(nowDate.getTime());
-		nowDate.add(Calendar.DATE, 6);
+		nowDate.add(Calendar.DATE, 7);
 		ret += "&endDay=" + dayFormat.format(nowDate.getTime());
 		ret += "&endMonth=" + monthFormat.format(nowDate.getTime());
 		ret += "&endYear=" + yearFormat.format(nowDate.getTime());
