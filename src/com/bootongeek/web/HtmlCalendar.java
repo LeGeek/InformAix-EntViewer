@@ -12,7 +12,7 @@ import com.bootongeek.Ical.EventComponent.IcalDate;
 
 public class HtmlCalendar {
 	private String html = "";
-	private int[] tabTime = {8, 10, 13, 15, 17 };
+	private int[] tabTime = {8, 10, 13, 15, 17};
 	
 	public HtmlCalendar(IcalFileParser ifp, Context c){
 		if(ifp.getVector().size() == 0) return;
@@ -67,8 +67,10 @@ public class HtmlCalendar {
 				addLine("</tr><tr><td>" + tmpDate + "</td>");
 				currentTimeIndex = 0;
 			}
-			
-			//fillEmptyCells(currentTimeIndex);
+			while(tabTime[currentTimeIndex] != deb.hour){
+				createEmptyCells(1);
+				++currentTimeIndex;
+			}
 			
 			addLine("<td colspan='" + duration / 2 +"' style='text-align: center; border: 1px solid black;' " +
 					"onclick=\"AndroidScript.showAlert('Titre :<br>" +
@@ -104,6 +106,12 @@ public class HtmlCalendar {
 		while(index < tabTime.length){
 			addLine("<td style='border: 1px solid black;'></td>");
 			++index;
+		}
+	}
+	
+	private void createEmptyCells(int number){
+		for(int i = 0; i < number; ++i){
+			addLine("<td style='border: 1px solid black;'></td>");
 		}
 	}
 }

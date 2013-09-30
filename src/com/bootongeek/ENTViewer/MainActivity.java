@@ -256,6 +256,7 @@ public class MainActivity extends Activity {
 		
 		if(requestCode == PREF_ACTIVITY){
 			runDownloadThread();
+			checkVisibilityBtnThisWeek();
 		}
 		
 	}
@@ -371,7 +372,6 @@ public class MainActivity extends Activity {
 	private String generateUrlCalendar(int offsetWeek){
 		//"http://planning.univ-amu.fr/ade/custom/modules/plannings/anonymous_cal.jsp?resources=8400&projectId=26&startDay=16&startMonth=09&startYear=2013&endDay=22&endMonth=09&endYear=2013&calType=ical"
 		Calendar nowDate = Calendar.getInstance();
-		
 		
 		int weekOfYear = nowDate.get(Calendar.WEEK_OF_YEAR) + offsetWeek;
 		
